@@ -1,9 +1,12 @@
+const serverless = require('serverless-http');
 const express = require('express');
 const bodyParser = require('body-parser');
 const util = require('util');
-const routes = require('./routes');
-const { PORT } = require('../config');
+// const routes = require('./routes');
+
+// const { PORT } = require('../config');
 const validateConfig = require('../validate-config');
+const controllers = require('./controllers');
 
 require('colors');
 
@@ -27,6 +30,15 @@ app.use((req, res, next) => {
   console.log(' Query:'.cyan, util.inspect(req.query));
   next();
 });
-routes(app);
-app.listen(PORT);
-console.log(`Listening on ${PORT}`.cyan);
+app.use('/github/openid', controllers);
+
+// routes(app);
+// app.listen('8090');
+// console.log(`Listening on ${PORT}`.cyan);
+
+module.exports.handler = serverless(app, {
+    request (request, event, context) {
+        // Transfer context from Lambda Event to HTTP request object
+        request.context = event.requestContext;
+    },
+});

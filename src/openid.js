@@ -31,18 +31,18 @@ const getUserInfo = accessToken =>
         console.info('User Claims: ', util.inspect(claims));
         return claims;
       }),
-    github()
-      .getUserEmails(accessToken)
-      .then(userEmails => {
-        const primaryEmail = userEmails.find(email => email.primary);
-        if (primaryEmail === undefined) {
-          throw new Error('User did not have a primary email address');
-        }
-        return {
-          email: primaryEmail.email,
-          email_verified: primaryEmail.verified
-        };
-      })
+    // github()
+    //   .getUserEmails(accessToken)
+    //   .then(userEmails => {
+    //     const primaryEmail = userEmails.find(email => email.primary);
+    //     if (primaryEmail === undefined) {
+    //       throw new Error('User did not have a primary email address');
+    //     }
+    //     return {
+    //       email: primaryEmail.email,
+    //       email_verified: primaryEmail.verified
+    //     };
+    //   })
   ]).then(claims => claims.reduce((acc, claim) => ({ ...acc, ...claim }), {}));
 
 const getTokens = (code, state, host) =>

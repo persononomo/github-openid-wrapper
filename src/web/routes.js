@@ -1,12 +1,12 @@
 const controllers = require('./controllers');
 
 module.exports = app => {
-  app.get('/userinfo', controllers.userInfo);
-  app.post('/userinfo', controllers.userInfo);
-  app.get('/token', controllers.token);
-  app.post('/token', controllers.token);
-  app.get('/authorize', controllers.authorize);
-  app.post('/authorize', controllers.authorize);
-  app.get('/jwks.json', controllers.jwks);
-  app.get('/.well-known/openid-configuration', controllers.openIdConfiguration);
+    app.post('/github/openid/authorize', controllers.authorize);
+    app.get('/github/openid/authorize', controllers.authorize);
+    app.post('/github/openid/token', controllers.token);
+    app.get('/github/openid/token', controllers.token);
+    app.post('/github/openid/userinfo', controllers.userInfo);
+    app.get('/github/openid/userinfo', controllers.userInfo);
+    app.get('/github/openid/jwks.json', controllers.jwks);
+    app.get('/github/openid/configuration', controllers.openIdConfiguration);
 };

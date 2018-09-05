@@ -22,7 +22,9 @@
     "json-web-key": "^0.3.0",
     "jsonwebtoken": "^8.3.0",
     "jsrsasign": "^8.0.12",
-    "jwk-to-pem": "^2.0.0"
+    "jwk-to-pem": "^2.0.0",
+    "serverless": "^1.26.0",
+    "serverless-http": "^1.5.2"
   },
   "devDependencies": {
     "@pact-foundation/pact": "^5.9.1",
@@ -38,7 +40,8 @@
     "eslint-plugin-jest": "^21.22.0",
     "jest": "^23.5.0",
     "nodemon": "^1.18.3",
-    "prettier": "^1.14.2"
+    "prettier": "^1.14.2",
+    "serverless-offline": "^3.16.0"
   },
   "engines": {
     "node": ">=10"
