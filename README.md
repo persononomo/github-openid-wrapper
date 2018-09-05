@@ -1,5 +1,5 @@
-GitHub OpenID Connect Wrapper
-=============================
+GitHub OpenID Connect Wrapper Serverless
+========================================
 
 [![Build Status](https://travis-ci.org/TimothyJones/github-openid-wrapper.svg?branch=master)](https://travis-ci.org/TimothyJones/github-openid-wrapper)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f787719be529b1c0e8ee/maintainability)](https://codeclimate.com/github/TimothyJones/github-openid-wrapper/maintainability)
