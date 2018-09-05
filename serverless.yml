@@ -1,0 +1,47 @@
+service: appsecmobile-github-auth
+
+plugins:
+  - serverless-offline
+
+custom:
+  yamlStage: ${opt:stage, 'dev'}
+  yamlFile: ./${opt:stage, 'dev'}.yml
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${self:custom.yamlStage}
+  region: ${file(${self:custom.yamlFile}):region}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - "*"
+      Resource:
+        - "*"
+
+  environment:
+    STAGE: ${self:custom.yamlStage}
+
+functions:
+  authorize:
+    handler: index.handler
+    timeout: 30
+    events: ${file(${self:custom.yamlFile}):events.authorize}
+
+  token:
+    handler: index.handler
+    timeout: 30
+    events: ${file(${self:custom.yamlFile}):events.token}
+
+  userinfo:
+    handler: index.handler
+    timeout: 30
+    events: ${file(${self:custom.yamlFile}):events.userinfo}
+
+  jwks:
+    handler: index.handler
+    events: ${file(${self:custom.yamlFile}):events.jwks}
+
+  openid-configuration:
+    handler: index.handler
+    events: ${file(${self:custom.yamlFile}):events.openid-configuration}

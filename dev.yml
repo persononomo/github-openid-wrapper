@@ -1,0 +1,60 @@
+events:
+  authorize:
+  - http:
+      path: '/github/openid/authorize'
+      method: post
+      cors: true
+  #          authorizer:
+  #            arn: arn:aws:cognito-idp:eu-west-1:334057996933:userpool/eu-west-1_AZVpH9wbT
+  - http:
+      path: '/github/openid/authorize'
+      method: get
+      cors: true
+  #          authorizer:
+  #            arn: arn:aws:cognito-idp:eu-west-1:334057996933:userpool/eu-west-1_AZVpH9wbT
+
+  token:
+  - http:
+      path: '/github/openid/token'
+      method: post
+      cors: true
+  #          authorizer:
+  #            arn: arn:aws:cognito-idp:eu-west-1:334057996933:userpool/eu-west-1_AZVpH9wbT
+  - http:
+      path: '/github/openid/token'
+      method: get
+      cors: true
+  #          authorizer:
+  #            arn: arn:aws:cognito-idp:eu-west-1:334057996933:userpool/eu-west-1_AZVpH9wbT
+
+  userinfo:
+  - http:
+      path: '/github/openid/userinfo'
+      method: post
+      cors: true
+  #          authorizer:
+  #            arn: arn:aws:cognito-idp:eu-west-1:334057996933:userpool/eu-west-1_AZVpH9wbT
+  - http:
+      path: '/github/openid/userinfo'
+      method: get
+      cors: true
+  #          authorizer:
+  #            arn: arn:aws:cognito-idp:eu-west-1:334057996933:userpool/eu-west-1_AZVpH9wbT
+
+  jwks:
+  - http:
+      path: '/github/openid/jwks.json'
+      method: get
+      cors: true
+  #          authorizer:
+  #            arn: arn:aws:cognito-idp:eu-west-1:334057996933:userpool/eu-west-1_AZVpH9wbT
+
+  openid-configuration:
+  - http:
+      path: '/github/openid/configuration'
+      method: get
+      cors: true
+  #          authorizer:
+  #            arn: arn:aws:cognito-idp:eu-west-1:334057996933:userpool/eu-west-1_AZVpH9wbT
+
+region: us-east-1
